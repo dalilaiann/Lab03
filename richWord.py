@@ -23,3 +23,9 @@ class RichWord:
 
     def __str__(self):
         return self._parola
+
+    def __eq__(self,word):
+        if self._parola==word:
+            return True
+        else:
+            return False

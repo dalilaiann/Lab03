@@ -7,10 +7,11 @@ class SpellChecker:
     def __init__(self):
         self.italianDict=md.MultiDictionary("italian")
         self.englishDict=md.MultiDictionary("english")
-     #   md.MultiDictionary("spanish")
+     #  self.spanishDict=md.MultiDictionary("spanish")
 
 
     def handleSentence(self, txtIn, language):
+        """Metodo di stampa del tempo impiegato per cercare la parola con il metodo contains"""
         words=txtIn.split(" ")
         result=[]
         #Contains
@@ -33,6 +34,7 @@ class SpellChecker:
         self.handleSentenceDicotomica(txtIn,language)
 
     def handleSentenceLinear(self, txtIn, language):
+        """Metodo di stampa per ricerca le parole con ricerca lineare"""
         words=txtIn.split(" ")
         result=[]
         #Contains
@@ -53,6 +55,7 @@ class SpellChecker:
         print("Time elapsed "+str(endtime-startTime))
 
     def handleSentenceDicotomica(self, txtIn, language):
+        """Metodo di stampa per ricercare le parole con ricerca dicotomica"""
         words=txtIn.split(" ")
         result=[]
         #Contains
@@ -74,13 +77,14 @@ class SpellChecker:
 
 
     def printResults(self, results):
-
+        """Metodo di stampa dei risultati errati"""
         for r in results:
             if r.corretta is False:
                 print(str(r))
 
 
     def printMenu(self):
+        """Metodo di stampa del menu"""
         print("______________________________\n" +
               "      SpellChecker 101\n"+
               "______________________________\n " +
@@ -93,6 +97,7 @@ class SpellChecker:
 
 
     def replaceChars(self, text):
+        """Metodo di rimozione dei caratteri speciali"""
         chars="\\*_{}[]()>#+-.!$%^;,=_"
         for c in chars:
             text=text.replace(c,"")
